@@ -1,0 +1,11 @@
+<div class="container-fluid new-essay">
+    <form (submit)="addEssay(createEssay)" #createEssay="ngForm">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input type="text" name="title" [ngModel]="lessonTitle" matInput />
+      </mat-form-field> 
+      <ckeditor  name="content" [ngModel]="lessonContent"> </ckeditor> <br>
+        <button mat-raised-button  color="primary" type="submit"><mat-icon>save</mat-icon> save</button>
+    </form>
+  </div>
+  

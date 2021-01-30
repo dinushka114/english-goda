@@ -1,0 +1,23 @@
+<div class="container-fluid new-lesson">
+  <form (submit)="addLesson(createLesson)" #createLesson="ngForm">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input type="text" name="title" [ngModel]="lessonTitle" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Article category</mat-label>
+      <mat-select #catValue (selectionChange)="selectChangeHandler($event.value)">
+        <mat-option [value]="cat.name" *ngFor="let cat of GrammerCategories">
+          {{ cat.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <ckeditor  name="content" [ngModel]="lessonContent"> </ckeditor> <br>
+    <section class="example-section">
+      <mat-checkbox (change)="checkCheckBoxvalue($event)" class="example-margin" >Draft</mat-checkbox> <br>
+      <mat-checkbox  class="example-margin" >Publish</mat-checkbox>
+    </section>
+      <button mat-raised-button  color="primary" type="submit"><mat-icon>save</mat-icon> save</button>
+  </form>
+</div>

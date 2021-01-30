@@ -1,0 +1,12 @@
+export const DB_PROVIDER = 'DATABASE_CONNECTION';
+export const ADMIN_PROVIDER = 'ADMIN_MODEL';
+export const GRAMMER_PROVIDER = 'GRAMMER_MODEL';
+export const CATEGORY_PROVIDER = 'CATEGORY_MODEL';
+export const ESSAY_PROVIDER = 'ESSAY_MODEL';
+export const PASTPAPER_PROVIDER = 'PASTPAPER_MODEL';
+export const VOCABULARY_PROVIDER = 'VOCABULARY_MODEL';
+export const VOCABULARY_CATEGORY_PROVIDER = 'VOCABULARY_CATEGORY_MODEL';
+
+export const jwtConstants:any = {
+    secretKey:"jashdYUoashd162KJJH09kjdhkjd"
+}

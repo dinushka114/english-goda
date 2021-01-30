@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "englishgodaadmin"
+  },
+  "targets": {
+    "english-goda-admin": {
+      "hosting": {
+        "admin": [
+          "english-goda-admin"
+        ]
+      }
+    }
+  }
+}

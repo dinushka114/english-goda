@@ -1,0 +1,60 @@
+<!-- <div class="container">
+  <div class="row">
+    <button
+      style="margin-top: 10px; margin-left: 20px"
+      mat-mini-fab
+      color="primary"
+      aria-label="Example icon button with a plus one icon"
+      matTooltip="new category"
+    >
+      <mat-icon>grading</mat-icon>
+    </button>
+  </div>
+</div> -->
+
+<table mat-table  [dataSource]="grammerCats" class="mat-elevation-z8">
+  <!--- Note that these columns can be defined in any order.
+            The actual rendered columns titleare set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>description</th>
+    <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="update">
+    <th mat-header-cell *matHeaderCellDef>update</th>
+    <td mat-cell *matCellDef="let element">
+      <button
+        mat-mini-fab
+        color="basic"
+        aria-label="Example icon button with a plus one icon"
+        [routerLink]="['edit', element._id]"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef>delete</th>
+    <td mat-cell *matCellDef="let element">
+      <button
+        mat-mini-fab
+        color="warn"
+        aria-label="Example icon button with a plus one icon"
+        (click)="deleteCategory(element._id)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

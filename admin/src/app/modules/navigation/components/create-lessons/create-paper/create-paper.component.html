@@ -1,0 +1,17 @@
+<div class="container-fluid new-paper">
+    <form (submit)="addPaper(createPaper)" #createPaper="ngForm">
+      <mat-form-field>
+        <mat-label>Paper name</mat-label>
+        <input type="text" name="name" [ngModel]="paperName" matInput />
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Paper File name(ex: sample.pdf)</mat-label>
+        <input type="text" name="link" [ngModel]="paperLink" matInput />
+      </mat-form-field>
+  
+      <ckeditor  name="answers" [ngModel]="paperAnswers"> </ckeditor> <br>
+        <button mat-raised-button  color="primary" type="submit"><mat-icon>save</mat-icon> save</button>
+    </form>
+  </div>
+  

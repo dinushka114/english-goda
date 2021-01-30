@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "265310252194",
+    "project_id": "english-goda",
+    "storage_bucket": "english-goda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265310252194:android:de42cc1c3ff3b25c00bbfb",
+        "android_client_info": {
+          "package_name": "com.one0innovations.englishforol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265310252194-np08vrkrtro0l2h209ouan2p6pveichi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg8x9bQZ5Fcy9vUUCLgzpEeVgirp-5C_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265310252194-np08vrkrtro0l2h209ouan2p6pveichi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
