@@ -26,7 +26,7 @@ export interface Essay extends Document{
 
 export interface PastPaper extends Document{
     name:string,
-    link:string,
+    paper:string,
     answers:string,
     created:Date
 }

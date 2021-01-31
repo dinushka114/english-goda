@@ -35,7 +35,7 @@ export const essaySchema = new mongoose.Schema({
 
 export const pastPaperSchema = new mongoose.Schema({
   name: String,
-  link: String,
+  paper: String,
   answers: String,
   created: {
     type: Date,

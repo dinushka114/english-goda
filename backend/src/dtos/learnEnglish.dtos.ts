@@ -22,7 +22,7 @@ export class createEssayDto{
 
 export class createPaperDto{
     name:string;
-    link:string;
+    paper:string;
     answers:string
 }
 

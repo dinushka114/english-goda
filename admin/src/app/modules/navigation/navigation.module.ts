@@ -26,8 +26,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { GrammerListComponent } from './components/grammer-list/grammer-list.component';
 import { VocabularyListComponent } from './components/vocabulary-list/vocabulary-list.component';
@@ -97,7 +98,7 @@ import { AuthInterceptor } from '../auth/auth.interceptor';
     MatTabsModule,
     MatTooltipModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
   ],
   providers: [
     GrammerLessonService,
@@ -107,8 +108,7 @@ import { AuthInterceptor } from '../auth/auth.interceptor';
     VocabularyLessonService,
     essayService,
     PastPaperService,
-    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
-  
 })
 export class NavigationModule {}

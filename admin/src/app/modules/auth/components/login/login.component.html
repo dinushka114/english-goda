@@ -1,18 +1,37 @@
-
 <mat-card>
-    <mat-card-title>Login</mat-card-title>
-    <form class="example-form" (submit)="onSubmitLoginForm(loginForm)" #loginForm="ngForm">
-        <mat-form-field class="example-full-width">
-          <mat-label>Username</mat-label>
-          <input required matInput #usernameInput name="username" type="text" ngModel placeholder="Ex. example@gmail.com">
-        </mat-form-field>
-      
-        <mat-form-field class="example-full-width">
-          <mat-label>Password</mat-label>
-          <input required #password name="password" type="password" matInput ngModel placeholder="Enter password"/>
-        </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Login</button>
-      </form>
+  <mat-card-title>Login</mat-card-title>
+  <form
+    class="example-form"
+    (submit)="onSubmitLoginForm(loginForm)"
+    #loginForm="ngForm"
+  >
+    <mat-form-field class="example-full-width">
+      <mat-label>Username</mat-label>
+      <input
+        required
+        matInput
+        #usernameInput
+        name="username"
+        type="text"
+        ngModel
+        placeholder="Ex. example@gmail.com"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input
+        required
+        #password
+        name="password"
+        type="password"
+        matInput
+        ngModel
+        placeholder="Enter password"
+      />
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Login</button>
+  </form>
 </mat-card>
 
 <!-- <mat-spinner ></mat-spinner> -->
