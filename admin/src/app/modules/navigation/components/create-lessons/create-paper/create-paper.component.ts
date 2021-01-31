@@ -15,7 +15,7 @@ export class CreatePaperComponent implements OnInit {
   ) {}
 
   paperName!: string;
-  paperLink!: string;
+  pastPaper!: string;
   paperAnswers!: string;
 
   mode!: string;
@@ -27,9 +27,11 @@ export class CreatePaperComponent implements OnInit {
       return;
     }
 
+    // console.log(form.value.name , form.value.past_paper,form.value.answers )
+
     const paper = {
       name: form.value.name,
-      link: form.value.link,
+      past_paper: form.value.past_paper,
       answers: form.value.answers,
     };
     if (this.mode == 'new') {
@@ -45,9 +47,11 @@ export class CreatePaperComponent implements OnInit {
         this.mode = 'edit';
         this.paperId = paramMap.get('paperId');
         this.paper = this.paperService.getPaper(this.paperId);
+        console.log(this.paper);
         this.paperName = this.paper.name;
         this.paperAnswers = this.paper.answers;
-        this.paperLink = this.paper.link;
+        this.pastPaper = this.paper.paper;
+        // console.log(this.pastPaper);
       } else {
         this.mode = 'new';
         this.paperId = null;

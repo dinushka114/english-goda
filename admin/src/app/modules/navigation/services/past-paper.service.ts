@@ -10,8 +10,8 @@ export class PastPaperService {
 
   papers: Paper[] = [];
   papersUpdated = new Subject<Paper[]>();
-  // private paperUrl = 'http://localhost:3000/api/admin/past-papers';
-  private paperUrl = 'https://still-reef-77817.herokuapp.com/api/admin/past-papers';
+  private paperUrl = 'http://localhost:3000/api/admin/past-papers';
+  // private paperUrl = 'https://still-reef-77817.herokuapp.com/api/admin/past-papers';
 
  private gitLink = "https://raw.githubusercontent.com/learn-english-one0/pdfs/master/";
 
@@ -32,7 +32,8 @@ export class PastPaperService {
   }
 
   createPaper(paper:any){
-    const newPaper = {name:paper.name , link:this.gitLink+paper.link , answers:paper.answers}
+    const newPaper = {name:paper.name , paper:paper.past_paper , answers:paper.answers}
+    console.log(newPaper);
     this.http.post(this.paperUrl+"/new" , newPaper)
     .subscribe(res=>{
         this.snakService.openSnakbar('Paper Created Sucessfully!!', 'Paper');
@@ -43,8 +44,8 @@ export class PastPaperService {
   }
 
   updatePaper(id:string,paper:any){
-    const updatedPaper = {name:paper.name, link:paper.link , answers:paper.answers}
-    this.http.put(this.paperUrl+"/update/"+id , paper)
+    const updatedPaper = {name:paper.name, paper:paper.past_paper , answers:paper.answers}
+    this.http.put(this.paperUrl+"/update/"+id , updatedPaper)
     .subscribe(res=>{
         this.snakService.openSnakbar("Paper Updated!!" ,"Paper");
         this.router.navigate(['/dashboard/past-papers']);

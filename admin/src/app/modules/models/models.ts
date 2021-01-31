@@ -28,7 +28,7 @@ export interface Essay{
 export interface Paper{
   _id:string,
   name:string,
-  link:string,
+  past_paper:string,
   answers:string,
   created:Date
 }

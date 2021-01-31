@@ -5,11 +5,13 @@
         <input type="text" name="name" [ngModel]="paperName" matInput />
       </mat-form-field>
       
-      <mat-form-field>
-        <mat-label>Paper File name(ex: sample.pdf)</mat-label>
-        <input type="text" name="link" [ngModel]="paperLink" matInput />
-      </mat-form-field>
-  
+      <!-- <mat-form-field>
+        <mat-label>Create Paper</mat-label>
+        
+      </mat-form-field> -->
+      <mat-label>Create Paper</mat-label>
+      <ckeditor type="text" name="past_paper" [ngModel]="pastPaper" ></ckeditor> <br>
+      <mat-label>Create Answers</mat-label>
       <ckeditor  name="answers" [ngModel]="paperAnswers"> </ckeditor> <br>
         <button mat-raised-button  color="primary" type="submit"><mat-icon>save</mat-icon> save</button>
     </form>

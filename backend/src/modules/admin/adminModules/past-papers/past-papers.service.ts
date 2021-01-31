@@ -18,6 +18,7 @@ export class PastPapersService {
 
     async createPaper(paperData:createPaperDto){
         const paper = await this.paperModel.create(paperData);
+        // console.log(paper);
         return {msg:"paper creatd"}
     }
 

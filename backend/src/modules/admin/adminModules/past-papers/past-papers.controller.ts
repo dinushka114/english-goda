@@ -18,6 +18,7 @@ export class PastPapersController {
     async createPaper(
         @Body() paperData:createPaperDto
     ){
+        // console.log(paperData)
         return await this.paperService.createPaper(paperData);
     }
 
@@ -27,6 +28,7 @@ export class PastPapersController {
         @Param('id') id:string,
         @Body() paperData:createPaperDto
     ){
+        
         return this.paperService.updatePaper(id , paperData);
     }
 
