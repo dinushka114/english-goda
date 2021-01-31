@@ -6,14 +6,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 @Injectable()
 export class PastPaperService {
-  constructor(private http: HttpClient,private snakService:SnakbarService,private router:Router) {}
+  constructor(
+    private http: HttpClient,
+    private snakService: SnakbarService,
+    private router: Router
+  ) {}
 
   papers: Paper[] = [];
   papersUpdated = new Subject<Paper[]>();
-  private paperUrl = 'http://localhost:3000/api/admin/past-papers';
-  // private paperUrl = 'https://still-reef-77817.herokuapp.com/api/admin/past-papers';
+  // private paperUrl = 'http://localhost:3000/api/admin/past-papers';
+  private paperUrl = 'https://still-reef-77817.herokuapp.com/api/admin/past-papers';
 
- private gitLink = "https://raw.githubusercontent.com/learn-english-one0/pdfs/master/";
 
   getPapers() {
     this.http.get<Paper[]>(this.paperUrl).subscribe((res) => {
@@ -23,43 +26,55 @@ export class PastPaperService {
     });
   }
 
-  getPaperUpdateLisnter(){
-      return this.papersUpdated.asObservable()
+  getPaperUpdateLisnter() {
+    return this.papersUpdated.asObservable();
   }
 
-  getPaper(id:string){
-    return {...this.papers.find(paper=>paper._id===id)};
+  getPaper(id: string) {
+    return { ...this.papers.find((paper) => paper._id === id) };
   }
 
-  createPaper(paper:any){
-    const newPaper = {name:paper.name , paper:paper.past_paper , answers:paper.answers}
+  createPaper(paper: any) {
+    const newPaper = {
+      name: paper.name,
+      paper: paper.past_paper,
+      answers: paper.answers,
+      Isdraft:paper.Isdraft
+    };
     console.log(newPaper);
-    this.http.post(this.paperUrl+"/new" , newPaper)
-    .subscribe(res=>{
-        this.snakService.openSnakbar('Paper Created Sucessfully!!', 'Paper');
-        this.papers.push(paper);
-        this.papersUpdated.next([...this.papers]);
-        this.router.navigate(['/dashboard/past-papers']);
-    })
+    this.http.post(this.paperUrl + '/new', newPaper).subscribe((res) => {
+      this.snakService.openSnakbar('Paper Created Sucessfully!!', 'Paper');
+      this.papers.push(paper);
+      this.papersUpdated.next([...this.papers]);
+      this.router.navigate(['/dashboard/past-papers']);
+    });
   }
 
-  updatePaper(id:string,paper:any){
-    const updatedPaper = {name:paper.name, paper:paper.past_paper , answers:paper.answers}
-    this.http.put(this.paperUrl+"/update/"+id , updatedPaper)
-    .subscribe(res=>{
-        this.snakService.openSnakbar("Paper Updated!!" ,"Paper");
+  updatePaper(id: string, paper: any) {
+    const updatedPaper = {
+      name: paper.name,
+      paper: paper.past_paper,
+      answers: paper.answers,
+      Isdraft:paper.Isdraft
+    };
+    this.http
+      .put(this.paperUrl + '/update/' + id, updatedPaper)
+      .subscribe((res) => {
+        this.snakService.openSnakbar('Paper Updated!!', 'Paper');
         this.router.navigate(['/dashboard/past-papers']);
-    })
+      });
   }
 
-  deletePaper(id:string){
-    this.http.delete(this.paperUrl+"/delete/"+id)
-    .subscribe(res=>{
+  deletePaper(id: string) {
+    this.http.delete(this.paperUrl + '/delete/' + id).subscribe((res) => {
       //   console.log(res);
-        const updatedPapers = this.papers.filter(paper=>paper._id!==id);
-        this.papers = updatedPapers;
-        this.papersUpdated.next([...this.papers]);
-        this.snakService.openSnakbar('Paper Deleted Sucessfully!!', 'Paper Deleted');
-    })
-}
+      const updatedPapers = this.papers.filter((paper) => paper._id !== id);
+      this.papers = updatedPapers;
+      this.papersUpdated.next([...this.papers]);
+      this.snakService.openSnakbar(
+        'Paper Deleted Sucessfully!!',
+        'Paper Deleted'
+      );
+    });
+  }
 }

@@ -22,6 +22,15 @@ export class CreatePaperComponent implements OnInit {
   paperId: any;
   paper: any;
 
+  Isdraft=false;
+
+  checkCheckBoxvalue(value:any){
+    this.Isdraft = value.checked;
+    // console.log(value.checked)
+    // console.log(this.Isdraft)
+
+  }
+
   addPaper(form: NgForm) {
     if (form.invalid) {
       return;
@@ -33,6 +42,7 @@ export class CreatePaperComponent implements OnInit {
       name: form.value.name,
       past_paper: form.value.past_paper,
       answers: form.value.answers,
+      Isdraft:this.Isdraft
     };
     if (this.mode == 'new') {
       this.paperService.createPaper(paper);

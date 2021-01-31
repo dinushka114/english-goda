@@ -41,7 +41,7 @@ export class UsersService {
     }
 
     async getPastPapers(){
-        return await this.paperModel.find({}).exec();
+        return await this.paperModel.find({Isdraft:{$in:[false]}}).exec();
     }
 
     async getVocabularyCats(){

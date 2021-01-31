@@ -13,6 +13,12 @@
       <ckeditor type="text" name="past_paper" [ngModel]="pastPaper" ></ckeditor> <br>
       <mat-label>Create Answers</mat-label>
       <ckeditor  name="answers" [ngModel]="paperAnswers"> </ckeditor> <br>
+
+      <section class="example-section">
+        <mat-checkbox (change)="checkCheckBoxvalue($event)" class="example-margin" >Draft</mat-checkbox> <br>
+        <mat-checkbox  class="example-margin" >Publish</mat-checkbox>
+      </section>
+
         <button mat-raised-button  color="primary" type="submit"><mat-icon>save</mat-icon> save</button>
     </form>
   </div>

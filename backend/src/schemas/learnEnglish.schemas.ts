@@ -41,6 +41,10 @@ export const pastPaperSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  Isdraft:{
+    type:Boolean,
+    default:false
+  }
   
 });
 
